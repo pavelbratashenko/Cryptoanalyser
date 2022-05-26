@@ -1,13 +1,11 @@
 package ua.com.javarash.bratashenko.сaesar;
 
-import javax.crypto.Cipher;
-import java.io.FileNotFoundException;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class Main {
 
@@ -16,20 +14,20 @@ public class Main {
         ArrayList<Character> charListIn = new ArrayList<>();
         ArrayList<Character> charListOut = new ArrayList<>();
 
+        Cipher cipher = new Cipher();
 
-        try (FileReader reader = new FileReader("in.txt");
-             FileWriter writer = new FileWriter("out.txt");) {
+        try {
+            cipher.fileToCollection(new FileReader("in.txt"), charListIn);
         } catch (IOException e) {
             System.err.println("Некорректное имя файла или путь" + e);
         }
+        cipher.shift(charListIn, 3, charListOut);
 
-
-
-
-
-
-
-
+        try {
+            cipher.collectionToFile(charListOut, new FileWriter("out.txt"));
+        } catch (IOException e) {
+            System.err.println("Некорректное имя файла или путь" + e);
+        }
     }
 }
 
