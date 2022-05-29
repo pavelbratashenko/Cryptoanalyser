@@ -33,5 +33,4 @@ public class Cipher {
         System.out.println("Данные расшифрованы с сдвигом на " + key);
         return listO;
     }
-
 }
