@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class BruteForce {
 
-    public void bruteForce(ArrayList<Character> list, FileWriter writer) throws IOException {
+    public static void bruteForce(ArrayList<Character> list, FileWriter writer) throws IOException {
 
         for (int i = 0; i < ALPHABET.size(); i++) {
             for (int j = 0; j < list.size(); j++) {
